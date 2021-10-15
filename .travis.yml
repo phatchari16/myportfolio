@@ -1,0 +1,10 @@
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_USERNAME" --password-stdin
+        - docker build -t myrepo:$TRAVIS_BUILD_NUMBER .
+        - docker tag myrepo:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/myrepo
+        - docker push $DOCKER_USERNAME/myrepo:latest
