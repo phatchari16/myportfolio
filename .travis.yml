@@ -7,7 +7,7 @@ jobs:
         # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         #- docker login -u "myportfoliodocker" -p javpWSbWBkXF4fM
         # - docker login -u "$DOCKER_USERNAME" -p javpWSbWBkXF4fM
-        - echo "$DOCKER_PASSWORD" | docker login -u "$myportfoliodocker"
+        - echo "$DOCKER_PASSWORD" | docker login -u "myportfoliodocker"
         - docker build -t myportfolio .
         - docker images
         - docker tag myportfolio $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
