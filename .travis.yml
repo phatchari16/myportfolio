@@ -6,7 +6,8 @@ jobs:
       script:
         # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         #- docker login -u "myportfoliodocker" -p javpWSbWBkXF4fM
-        - docker login -u "$DOCKER_USERNAME" -p javpWSbWBkXF4fM
+        # - docker login -u "$DOCKER_USERNAME" -p javpWSbWBkXF4fM
+        - docker login -u "$myportfoliodocker" -p "$DOCKER_PASSWORD"
         - docker build -t myportfolio .
         - docker images
         - docker tag myportfolio $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
