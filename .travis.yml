@@ -5,6 +5,8 @@ jobs:
     - stage: Docker build Stage
       script:
         # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - echo "$DOCKER_USERNAME"
+        - echo "$DOCKER_PASSWORD"
         - docker login -u "myportfoliodocker" -p javpWSbWBkXF4fM
         - docker build -t myportfolio .
         - docker images
