@@ -2,9 +2,13 @@ dist: trusty
 
 jobs:
   include:
-    - stage: build docker image
+    - stage: Docker build Stage
       script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_USERNAME" --password-stdin
-        - docker build -t myrepo:$TRAVIS_BUILD_NUMBER .
-        - docker tag myrepo:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/myrepo
-        - docker push $DOCKER_USERNAME/myrepo:latest
+        # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker login -u "myportfoliodocker" -p javpWSbWBkXF4fM
+        - docker build -t myportfolio .
+        - docker images
+        - docker tag myportfolio $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
+        - docker tag myportfolio $DOCKER_USERNAME/myportfolio
+        - docker push $DOCKER_USERNAME/myportfolio:latest
